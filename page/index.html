@@ -1,0 +1,29 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css"></head>
+</head>
+
+<div id="app">
+  <span v-if="car === undefined">Loading</span>
+  <span v-else-if="car === null">Car Not Found</span>
+  <div class="car" v-else>
+    <span class="order registered" v-if="car.status === 2">{{ car.order }}</span>
+    <span class="order called" v-if="car.status === 3">Called</span>
+    <span class="order cancelled" v-if="car.status === 9">Cancelled</span>
+    <span class="reg-number">{{ car.regNumber }}</span>
+    <span class="changed">{{ car.changedAt }}</span>
+    <span class="updated">{{ updatedAt }}</span>
+  </div>
+
+</div>
+
+<script type="importmap">
+  {
+    "imports": {
+      "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js",
+      "date-fns/parse": "https://cdn.jsdelivr.net/npm/date-fns@4.1.0/parse.js",
+      "date-fns/format": "https://cdn.jsdelivr.net/npm/date-fns/format.mjs"
+    }
+  }
+</script>
+<script type="module" src="app.js"></script>
